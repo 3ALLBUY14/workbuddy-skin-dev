@@ -17,9 +17,9 @@
 
 ## 预览
 
-![东方森系皮肤真实截图](docs/preview.png)
+![东方森系皮肤真实截图](docs/preview.jpg)
 
-> 预览图在 WorkBuddy 5.2.6 截取;内置森系皮肤现已适配至 5.3.3(背景层 `z-index` 修正为 0,避免被 Electron GPU 合成剔除)。
+> Skill文件与内置森系皮肤现已适配至 5.3.3。
 
 ## 目录
 ```
