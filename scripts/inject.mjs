@@ -134,11 +134,22 @@ const DEFAULT_STRIP = [
 function buildInjectFn(css) {
   const stripJson = JSON.stringify(DEFAULT_STRIP);
   return `
-(() => {
+(async () => {
   const ID = ${JSON.stringify(SKIN_ID)};
   const GLOW = ${JSON.stringify(GLOW_ID)};
   const MARKER = ${JSON.stringify(MARKER)};
   const css = ${JSON.stringify(css)};
+  // 等待 document.head/body 就绪 (启动即注入时 DOM 可能还没解析完, 否则 appendChild 报 null)
+  await new Promise((res) => {
+    if (document.head && document.body) return res();
+    const t0 = Date.now();
+    const iv = setInterval(() => {
+      if ((document.head && document.body) || Date.now() - t0 > 8000) {
+        clearInterval(iv);
+        res();
+      }
+    }, 80);
+  });
   let el = document.getElementById(ID);
   if (!el) { el = document.createElement('style'); el.id = ID; document.head.appendChild(el); }
   el.textContent = css;
