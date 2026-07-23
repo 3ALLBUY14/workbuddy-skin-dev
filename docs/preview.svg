@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="520" viewBox="0 0 820 520" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c1411"/>
+      <stop offset="0.6" stop-color="#14241f"/>
+      <stop offset="1" stop-color="#0c1411"/>
+    </linearGradient>
+    <linearGradient id="send" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#aef0e2"/>
+      <stop offset="1" stop-color="#6ea8a1"/>
+    </linearGradient>
+    <radialGradient id="amb" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#1d3a30" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#0c1411" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 背景层 (对应注入器创建的 #id-bg) -->
+  <rect width="820" height="520" fill="url(#bg)"/>
+  <rect width="820" height="520" fill="url(#amb)"/>
+  <!-- 几竿竹影 -->
+  <g stroke="#2f5d4f" stroke-width="3" opacity="0.35" fill="none">
+    <path d="M70 0 C 90 160, 50 320, 80 520"/>
+    <path d="M150 0 C 170 180, 120 340, 150 520"/>
+    <path d="M760 0 C 740 160, 780 320, 750 520"/>
+  </g>
+
+  <!-- 侧边栏 (半透明面板) -->
+  <rect x="20" y="20" width="200" height="480" rx="14" fill="rgba(20,30,28,0.55)" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="40" y="44" width="120" height="14" rx="7" fill="rgba(255,255,255,0.18)"/>
+  <g fill="rgba(255,255,255,0.10)">
+    <rect x="40" y="84" width="160" height="30" rx="8"/>
+    <rect x="40" y="124" width="160" height="30" rx="8"/>
+    <rect x="40" y="164" width="160" height="30" rx="8" fill="rgba(110,168,161,0.25)"/>
+    <rect x="40" y="204" width="160" height="30" rx="8"/>
+  </g>
+
+  <!-- 主聊天区 -->
+  <rect x="240" y="20" width="560" height="480" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+
+  <!-- AI 消息气泡 (半透明玉框) -->
+  <g>
+    <rect x="270" y="60" width="430" height="86" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <rect x="290" y="82" width="300" height="10" rx="5" fill="rgba(232,240,236,0.55)"/>
+    <rect x="290" y="102" width="360" height="10" rx="5" fill="rgba(232,240,236,0.40)"/>
+    <rect x="290" y="122" width="220" height="10" rx="5" fill="rgba(232,240,236,0.30)"/>
+  </g>
+  <!-- 用户消息气泡 -->
+  <g>
+    <rect x="380" y="176" width="380" height="60" rx="14" fill="rgba(110,168,161,0.18)" stroke="rgba(110,168,161,0.45)"/>
+    <rect x="400" y="196" width="320" height="10" rx="5" fill="rgba(232,240,236,0.55)"/>
+    <rect x="400" y="216" width="180" height="10" rx="5" fill="rgba(232,240,236,0.40)"/>
+  </g>
+
+  <!-- 输入栏 -->
+  <rect x="270" y="430" width="500" height="52" rx="26" fill="rgba(20,30,28,0.7)" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="290" y="450" width="380" height="12" rx="6" fill="rgba(232,240,236,0.30)"/>
+  <!-- 发送按钮 (glow, 对应 .__forest_send) -->
+  <circle cx="740" cy="456" r="22" fill="url(#send)"/>
+  <circle cx="740" cy="456" r="22" fill="none" stroke="#aef0e2" stroke-width="2" opacity="0.7"/>
+  <path d="M732 456 l12 -7 v14 z" fill="#0c1411" opacity="0.75"/>
+
+  <text x="410" y="503" fill="#6ea8a1" font-size="13" text-anchor="middle">东方森系 · WorkBuddy 皮肤 (风格预览)</text>
+</svg>

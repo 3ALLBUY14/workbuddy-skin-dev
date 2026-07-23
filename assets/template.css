@@ -1,0 +1,56 @@
+/* __SKIN_ID__ — WorkBuddy 皮肤模板 (starter)
+ * 改色: 调下面的 --accent / --surface 即可。
+ * 类名带哈希(如 _assistantMessage_14nyt_190)会随 WorkBuddy 版本变化,
+ *   用 `node inject.mjs inspect` 重新抓, 再更新下面选择器。
+ * 发送/强调按钮由注入器自动加 class: .__SKIN_MARKER__ (在 skin.config.json 里配置)。
+ */
+
+:root {
+  --accent: #6ea8a1;                 /* 主题强调色 */
+  --surface: rgba(20, 30, 28, 0.55); /* 面板半透明底色 */
+  --text: #e8f0ec;                   /* 主文字 */
+}
+
+/* 全屏根容器透明, 露出背景层 */
+.teams-container,
+.main-content,
+.main-content--chat,
+.chat-container,
+.wb-cb-chat,
+._cbChat_1akz6_7 {
+  background: transparent !important;
+}
+
+/* 侧边栏 / 列表 / 顶栏: 半透明 */
+.conversation-sidebar,
+.conversation-list,
+.conversation-list-header,
+.workbuddy-topbar,
+.workbuddy-topbar-option {
+  background: var(--surface) !important;
+  color: var(--text);
+}
+
+/* 聊天消息气泡: 半透明玉框 (只在外层加, 内层内容不重复套框) */
+._gridViewItem_48kdk_14 ._assistantMessage_14nyt_190,
+._chatMessageBox_14nyt_114 > ._assistantRow_14nyt_184 ._assistantMessage_14nyt_190 {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+}
+
+/* 发送 / 强调按钮: 注入器自动加 .__SKIN_MARKER__ class */
+.__SKIN_MARKER__ {
+  border-radius: 50% !important;
+  background: radial-gradient(circle at 50% 40%, #aef0e2, var(--accent)) !important;
+  box-shadow: 0 0 12px rgba(110, 168, 161, 0.7) !important;
+}
+
+/* 背景层 (GLOW id = __SKIN_ID__-bg, 由注入器自动创建) */
+#__SKIN_ID__-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(160deg, #0c1411, #14241f 60%, #0c1411);
+}
