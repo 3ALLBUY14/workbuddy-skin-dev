@@ -19,7 +19,7 @@
 
 ![东方森系皮肤真实截图](docs/preview.png)
 
-> 在 WorkBuddy 5.2.6 + Electron 37 的真实窗口下截取(已套用东方森系皮肤)。
+> 预览图在 WorkBuddy 5.2.6 截取;内置森系皮肤现已适配至 5.3.3(背景层 `z-index` 修正为 0,避免被 Electron GPU 合成剔除)。
 
 ## 目录
 ```

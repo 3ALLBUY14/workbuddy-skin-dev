@@ -42,7 +42,7 @@
 | class | 何时出现 | 用途 |
 |-------|----------|------|
 | `.__forest_send`(默认 marker) | 发送/强调按钮 | 上"泛光强调"样式,皮肤只管给它上色 |
-| `#<id>-bg`(或 `glow` 配置) | 背景层 | 固定背景/氛围渐变,`position:fixed; inset:0; z-index:-1` |
+| `#<id>-bg`(或 `glow` 配置) | 背景层 | 固定背景/氛围渐变,`position:fixed; inset:0; z-index:0`(负值会被 Electron GPU 合成剔除,背景根本不画) |
 
 ## 复核命令
 ```
