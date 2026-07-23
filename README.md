@@ -21,7 +21,7 @@
 ![东方森系皮肤真实截图](docs/preview.png)
 
 > 想自己截? 先 `node scripts/launch.mjs` 启动并注入皮肤, 再 `node scripts/shot.mjs`
-> 保存为 `docs/preview.png`(`--full` 可截完整页面)。旧版风格示意图仍保留在 `docs/preview.svg`。
+> 保存为 `docs/preview.png`(`--full` 可截完整页面)。
 
 ## 目录
 ```
@@ -37,7 +37,8 @@ workbuddy-skin-dev/
 ├── references/
 │   ├── workflow.md               # 四步开发工作流
 │   ├── pitfalls.md               # 踩坑清单 (.bat 编码 / 端口 / node 路径...)
-│   └── dom-targets.md           # WorkBuddy DOM 目标类名参考
+│   ├── dom-targets.md           # WorkBuddy DOM 目标类名参考
+│   └── how-it-works.md         # 注入原理 (CDP / 内存态 / 为何不动 asar)
 └── assets/
     ├── template.css              # 极简起步皮肤模板
     └── forest-theme-skin.css     # 东方森系参考皮肤 (含背景图)
@@ -78,12 +79,10 @@ node inject.mjs inject
 WorkBuddy 启动后会在合适时机自动加载该 Skill,获得"皮肤开发"的专业流程与脚本。
 
 ## 原理简述
-1. WorkBuddy 以 `--remote-debugging-port=9222` 启动,暴露 CDP HTTP 端点。
-2. `inject.mjs` 经 `Runtime.evaluate` 在渲染进程里插入一个 `<style>`(含皮肤 CSS),
-   并附带通用修复:清理流式空气泡、被动捕获浮层类名、给发送按钮加 marker class。
-3. 全部在内存态,重启即失;启动器每次拉起时自动重注,故更新 WorkBuddy 不受影响。
+通过 Chrome DevTools Protocol (CDP) 把 CSS 注入 WorkBuddy 渲染进程,**不修改安装目录、不碰 `app.asar`**,
+注入为内存态、重启即失,但启动器每次自动重注,故 WorkBuddy 更新免疫。
 
-更多细节见 `references/`。
+想深入了解注入机制、为何不动 asar、皮肤配置结构,见 [`references/how-it-works.md`](references/how-it-works.md)。
 
 ## 贡献
 欢迎 PR:新皮肤、对新版本 WorkBuddy 类名的适配、其他平台支持等。
