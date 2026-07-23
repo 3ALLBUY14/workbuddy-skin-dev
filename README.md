@@ -20,8 +20,6 @@
 ![东方森系皮肤真实截图](docs/preview.png)
 
 > 在 WorkBuddy 5.2.6 + Electron 37 的真实窗口下截取(已套用东方森系皮肤)。
-> 想自己截? 先 `node scripts/launch.mjs` 启动并注入皮肤, 再 `node scripts/shot.mjs`
-> 保存为 `docs/preview.png`(`--full` 可截完整页面)。
 
 ## 目录
 ```
