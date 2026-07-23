@@ -1,0 +1,39 @@
+name: Package Skill
+
+on:
+  push:
+    branches: [main, master]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Package skill
+        # 仓库根目录即技能目录 → 打包为 dist/workbuddy-skin-dev.zip
+        run: python .github/scripts/package_skill.py . dist
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: workbuddy-skin-dev
+          path: dist/workbuddy-skin-dev.zip
+
+      - name: Attach to GitHub Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/workbuddy-skin-dev.zip

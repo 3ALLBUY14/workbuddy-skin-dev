@@ -1,0 +1,7 @@
+{
+  "css": "assets/forest-theme-skin.css",
+  "id": "forest-theme-skin",
+  "marker": "__forest_send",
+  "glow": "forest-theme-bg",
+  "port": 9222
+}

@@ -1,0 +1,15 @@
+# 日志
+*.log
+skin-launch.log
+forest-inject-log.txt
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+node_modules/
+
+# 本地临时
+*.bak-*
+
+# CI 产物 (GitHub Actions 自动重新打包, 无需入库)
+dist/
